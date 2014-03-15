@@ -24,7 +24,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/** @var Nette\Application\Application */
 	private $application;
 
-	/** @var GettextTranslator\Gettext */
+	/** @var \GettextTranslator\Gettext */
 	private $translator;
 
 	/** @var Nette\Http\SessionSection */
@@ -179,7 +179,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 */
 	public static function register(Nette\Application\Application $application, Gettext $translator, Nette\Http\Session $session, Nette\Http\Request $httpRequest, $layout, $height) 
 	{
-		Nette\Diagnostics\Debugger::$bar->addPanel(new static($application, $translator, $session, $httpRequest, $layout, $height));
+		Nette\Diagnostics\Debugger::getBar()->addPanel(new self($application, $translator, $session, $httpRequest, $layout, $height));
 	}
 
 
